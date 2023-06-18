@@ -1,40 +1,16 @@
-import React, { useState } from "react";
-import { TextField, Button } from "@mui/material";
+"use client";
 
-interface ChatProps {
-  onSendMessage: (message: string) => void;
-}
+import Sidebar from "./Sidebar";
 
-const Chat: React.FC<ChatProps> = ({ onSendMessage }) => {
-  const [message, setMessage] = useState("");
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setMessage(event.target.value);
-  };
-
-  const handleSendMessage = () => {
-    onSendMessage(message);
-    setMessage("");
-  };
-
+export default function Chat() {
   return (
-    <div className="flex flex-row space-x-2">
-      <TextField
-        label="Message"
-        variant="outlined"
-        value={message}
-        onChange={handleInputChange}
-        className="flex-grow"
-      />
-      <Button
-        variant="contained"
-        onClick={handleSendMessage}
-        className="flex-shrink-0"
-      >
-        Send
-      </Button>
+    <div className="container w-full">
+      <div className="grid grid-cols-6 gap-4">
+        <div className="col-start-1 col-end-2">
+          <Sidebar />
+        </div>
+        <div className="col-start-2 col-end-7">MAINPAGE</div>
+      </div>
     </div>
   );
-};
-
-export default Chat;
+}
