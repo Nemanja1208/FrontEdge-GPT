@@ -1,15 +1,21 @@
 "use client";
-
-import Sidebar from "./Sidebar";
+import { TextField } from "@mui/material";
+import { useState } from "react";
 
 export default function Chat() {
   return (
-    <div className="container w-full">
-      <div className="grid grid-cols-6 gap-4">
-        <div className="col-start-1 col-end-2">
-          <Sidebar />
+    <div className="h-full w-full flex flex-col justify-center items-center mx-auto text-center">
+      <div>
+        <h1>Welcome to our Chat</h1>
+        <h3>Ask away !</h3>
+        <div className="w-full">
+          <TextField
+            id="outlined-basic"
+            label="Ask us a question"
+            variant="outlined"
+            fullWidth={true}
+          />
         </div>
-        <div className="col-start-2 col-end-7">MAINPAGE</div>
       </div>
     </div>
   );
